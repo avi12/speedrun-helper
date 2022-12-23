@@ -1,0 +1,43 @@
+{
+  "name": "speedrun-helper",
+  "displayName": "Speedrun.com helper",
+  "version": "0.0.0",
+  "description": "A bunch of tools to help with moderating speedruns. Made by https://avi12.com",
+  "author": "avi12",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package && ren build\\chrome-mv3-prod.zip speedrun-helper.zip",
+    "build-pack": "pnpm build && pnpm package",
+    "run-browser": "web-ext run --no-config-discovery --start-url https://www.speedrun.com/modhub --source-dir build/chrome-mv3-dev --verbose --target",
+    "run-chromium": "pnpm run-browser chromium"
+  },
+  "dependencies": {
+    "plasmo": "0.60.2"
+  },
+  "devDependencies": {
+    "@plasmohq/prettier-plugin-sort-imports": "3.6.1",
+    "@types/chrome": "0.0.206",
+    "@types/node": "18.11.17",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "2.8.1",
+    "typescript": "4.9.4"
+  },
+  "manifest": {
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "style.css"
+        ],
+        "matches": [
+          "<all_urls>"
+        ]
+      }
+    ]
+  }
+}
